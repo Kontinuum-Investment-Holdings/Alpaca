@@ -11,7 +11,7 @@ from jobs import get_account_summary
 def buy_leveraged_stock(symbol: str, leverage: int) -> None:
     Position.close_all_by_symbol(symbol)
     market_data: MarketData = MarketData.get(symbol)
-    number_of_stock: int = int((Account.cash * Decimal(str(leverage))) / market_data.ask_price)
+    number_of_stock: int = int((Account.call().cash * Decimal(str(leverage))) / market_data.ask_price)
     Order.place(symbol, number_of_stock, OrderSide.BUY, OrderType.MARKET, None, OrderTimeInForce.DAY)
 
 
