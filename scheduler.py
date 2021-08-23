@@ -3,8 +3,7 @@ from typing import Callable
 
 import schedule
 
-import common
-from jobs import monitor_vix, cancel_unfilled_orders, get_account_summary, buy_leveraged_stocks, update_code_base, check_authentication_status
+from jobs import buy_leveraged_stocks
 
 
 def run_every_week_day(job: Callable, time: str) -> None:
