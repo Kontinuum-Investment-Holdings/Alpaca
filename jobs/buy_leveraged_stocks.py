@@ -1,8 +1,8 @@
 from decimal import Decimal
 from typing import List
 
-import global_common
 import communication.telegram
+import global_common
 from alpaca.models import Position, MarketData, Account, MarketClock, Order, OrderSide, OrderType, OrderTimeInForce
 
 import constants
@@ -35,3 +35,7 @@ def do() -> None:
     market_clock = MarketClock.get()
     if market_clock.is_open:
         buy_leveraged_stock("QQQ", 3)
+
+
+if __name__ == "__main__":
+    do()
